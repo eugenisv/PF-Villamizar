@@ -65,21 +65,6 @@ function aggCarrito (n, listaProductos) {
 
 const formulario = document.getElementById("formulario");
 
-formulario.addEventListener("submit", function (event)) {
-  event.preventDefault();
-
-  const nombre = document.getElementById("nombre").value;
-  const email = document.getElementById("email").value;
-
-  const comprador = {
-    nombre: nombre,
-    email: email,
-  };
-
-guardarStrg("cliente", comprador);
-
-}
-
 // Guarda objeto en almacenamiento local
 function guardarStrg(clave, objeto) {
     const objetoJSON = JSON.stringify(objeto);
