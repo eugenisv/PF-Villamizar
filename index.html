@@ -21,14 +21,28 @@
         </div>
       </nav>
 
-      <!-- Grid productos -->
+      <!-- Búsqueda de producto por nombre -->
+      <input type="search" id="productoBuscado" placeholder="Escribe aquí lo que buscas"> 
+      <button id="buscarProducto">Buscar</button> <br>
 
-      <div class="container">
-        <div id="productos" class="row"></div>
+      <!-- Filtrado por precio -->
+      <input type="text" id="filtradoPrecio" placeholder="Precio máximo">
+      <button id="filtrarPrecio">Filtrar</button> 
+
+      <!-- Ordenado por precios -->
+      <select id="seleccionOrden" class="form-select" aria-label="Default select example">
+        <option selected>Ordenar resultados</option>
+        <option value="1">Menor a mayor precio</option>
+        <option value="2">Mayor a menor precio</option>
+        <option value="3">Alfabéticamente</option>
+      </select>
+      <!-- Grid productos -->
+      <div class="container mx-auto">
+        <div id="productos" class="row col-10"></div>
       </div>
     
     <!-- Form para ordenar -->
-    <form>
+    <form id="formulario" class="mx-auto col-md-6 col-10">
       <div class="mb-3">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre y Apellido</label>
@@ -42,6 +56,8 @@
     </form>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!-- Sweet alert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="script.js"></script>
 </body>
 </html>
