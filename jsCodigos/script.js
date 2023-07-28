@@ -4,7 +4,6 @@ let seleccionOrden = document.getElementById("seleccionOrden")
 let buscar = document.getElementById("buscarProducto")
 let bttnFiltrarPrecio = document.getElementById("filtrarPrecio")
 let bttnOrdenar = document.getElementById("btnOrdenar")
-let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 
 //array con los productos del carrito
 carritoItems = []
@@ -124,6 +123,15 @@ function ordenarCompra(array) {
   event.preventDefault()
   const nombre = document.getElementById("nombre")
   const email = document.getElementById("email")
+  if (nombre.value == "" || email.value == "") {
+    Swal.fire({
+      title: 'Hey!',
+      icon: 'error',
+      confirmButtonColor: 'green',
+      text: `Por favor, rellena todos los campos requeridos.`,
+      })
+      return
+  }
   localStorage.setItem("Nombre", nombre.value)
   localStorage.setItem("E-mail", email.value)
   localStorage.setItem("Orden", JSON.stringify(array))
