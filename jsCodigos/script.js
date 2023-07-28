@@ -7,14 +7,7 @@ let bttnOrdenar = document.getElementById("btnOrdenar")
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 
 //array con los productos del carrito
-let carritoItems
-if(localStorage.getItem("carrito")){
-   carritoItems = JSON.parse(localStorage.getItem("carrito"))
-}else{
-   carritoItems = []
-   localStorage.setItem("carrito", carritoItems)
-}
-
+carritoItems = []
 // FUNCIONES
 // Función que carga las cards con la info del array de productos
 function mostrarCatalogo (array){
@@ -42,7 +35,6 @@ productosDiv.innerHTML = ''
 
 function aggCarrito (producto) {
   carritoItems.push(producto)
-  localStorage.setItem("Carrito", carritoItems)
   Swal.fire({
     position: 'top-end',
     icon: 'success',
@@ -149,11 +141,20 @@ function ordenarCompra(array) {
       for(producto of carritoItems) {
         total = total + parseFloat(producto.precioProducto)
       }
+      if(total < 1){
+        Swal.fire({
+          title: 'Hey!',
+          icon: 'info',
+          confirmButtonColor: 'green',
+          text: `No has comprado nada! Llena tu carrito antes de ordenar.`,
+          })
+          return
+      }
        Swal.fire({
           title: 'Compra realizada',
           icon: 'success',
           confirmButtonColor: 'green',
-          text: `Gracias por escogernos! Hemos generado una factura por ${total.toFixed(2)}$. Puedes NO observar los detalles en tu correo ;) `,
+          text: `Gracias por escogernos, ${localStorage.getItem("Nombre")}! Hemos generado una factura por ${total.toFixed(2)}$. Puedes NO observar los detalles en tu correo ;) `,
           })
        productosEnCarrito = []
     }else{
@@ -183,14 +184,6 @@ function ordenarCompra(array) {
 // const producto6 = new Producto ("Hamburguesa de Lentejas", 9.95, "Hamburguesa vegetariana de lentejas con aguacate, tomate, cebolla y aderezo de tahini.", 5, "...")
 
 // const listaProductos = [producto1, producto2, producto3, producto4, producto5, producto6]
-
-// // Array con los productos en carrito
-// if (localStorage.getItem("Carrito")) {
-//   // carritoItems = JSON.parse(localStorage.getItem("Carrito"))
-// } else {
-//   // 
-//   // localStorage.setItem("Carrito", carritoItems)
-// }
 
 // Para organizar los productos 
 seleccionOrden.addEventListener("change", () => {
