@@ -1,4 +1,8 @@
 // Evento para agregar al carrito
+if (localStorage.getItem("Nombre")) {
+  document.getElementById("nombre").value = localStorage.getItem("Nombre")
+  document.getElementById("email").value = localStorage.getItem("E-mail")
+}
 
 let seleccionOrden = document.getElementById("seleccionOrden")
 let buscar = document.getElementById("buscarProducto")
@@ -135,17 +139,7 @@ function ordenarCompra(array) {
   localStorage.setItem("Nombre", nombre.value)
   localStorage.setItem("E-mail", email.value)
   localStorage.setItem("Orden", JSON.stringify(array))
-  Swal.fire({
-    title: 'Segur@ de comprar?',
-    icon: 'info',
-    showCancelButton: true,
-    confirmButtonText: 'Sí',
-    cancelButtonText: 'No',
-    confirmButtonColor: 'green',
-    cancelButtonColor: 'red',
-}).then((result) => {
-    if(result.isConfirmed){
-      let total = 0
+  let total = 0
       for(producto of carritoItems) {
         total = total + parseFloat(producto.precioProducto)
       }
@@ -158,6 +152,17 @@ function ordenarCompra(array) {
           })
           return
       }
+
+  Swal.fire({
+    title: 'Segur@ de comprar?',
+    icon: 'info',
+    showCancelButton: true,
+    confirmButtonText: 'Sí',
+    cancelButtonText: 'No',
+    confirmButtonColor: 'green',
+    cancelButtonColor: 'red',
+}).then((result) => {
+    if(result.isConfirmed){
        Swal.fire({
           title: 'Compra realizada',
           icon: 'success',
