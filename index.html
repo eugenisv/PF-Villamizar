@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fita</title>
-   
+    <link rel="icon" href="assets/Logo.ico" type="image/x-icon">
     <!-- Bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -20,9 +20,8 @@
           </button>
         </div>
       </nav>
-
       <!-- Búsqueda de producto por nombre -->
-      <input type="search" id="productoBuscado" placeholder="Escribe aquí lo que buscas"> 
+      <input type="search" id="productoBuscado" placeholder="Busca un Producto"> 
       <button id="buscarProducto">Buscar</button> <br>
 
       <!-- Filtrado por precio -->
@@ -37,27 +36,33 @@
         <option value="3">Alfabéticamente</option>
       </select>
       <!-- Grid productos -->
+      <br> <br>
       <div class="container mx-auto">
         <div id="productos" class="row col-10"></div>
       </div>
-    
     <!-- Form para ordenar -->
+    <br>  <br> 
+    <h3 class="text-center">Ingresa tus datos para completar la compra</h3>
+    <br> <br>
     <form id="formulario" class="mx-auto col-md-6 col-10">
       <div class="mb-3">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre y Apellido</label>
-          <input type="text" class="form-control" id="nombre">
+          <input type="text" class="form-control" id="nombre" required>
         </div>
         <label for="email" class="form-label">Dirección de Correo Electrónico</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
         <div id="emailHelp" class="form-text">Enviaremos los detalles de la orden a tu correo</div>
       </div>
       <button type="submit" id="btnOrdenar" class="btn btn-primary">Ordenar</button>
     </form>
+
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <!-- Sweet alert JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="script.js"></script>
+<script src="jsCodigos/class.js"></script>
+<script src="jsCodigos/script.js"></script>
 </body>
 </html>
